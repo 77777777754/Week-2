@@ -1,0 +1,32 @@
+package 作业2;
+
+import java.util.Scanner;
+
+public class week2 {
+	public static void main(String[] args) {
+		// 定义变量
+		int n;// n位水仙花数
+		int sum;// 各位数n次幂求和
+		int wei;// 记录每次弃掉个位数后的数
+		int a;// 表示每一位上的数字
+		// 数据输入
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Please input n:(3 to 7)");
+		n = scan.nextInt();
+
+		// 输出
+		for (int num = (int) Math.pow(10, n - 1); num <= Math.pow(10, n) - 1; num++) {
+			sum = 0;
+			wei = num;
+			do {
+				a = wei % 10;
+				sum += Math.pow(a, n);
+				wei = wei / 10;
+			} while (wei != 0);
+
+			if (num == sum)
+				System.out.println(num);
+		}
+	}
+
+}
