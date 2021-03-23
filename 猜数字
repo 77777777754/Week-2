@@ -1,0 +1,49 @@
+package 作业2;
+
+import java.util.Scanner;
+
+public class 猜数字 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String again;
+		do{int randomNumber;
+		randomNumber = 1 + (int)(Math.random() * 1000);
+		System.out.println(randomNumber);
+		Scanner scan = new Scanner (System.in);
+		int myGuess;
+		
+		boolean success = false;
+		
+		System.out.println("Please input your guess number:");
+		
+		for(int i = 1; i <= 10; i++) {
+			if(i > 1)
+			System.out.println("Please input your guess number again:");
+			myGuess = scan.nextInt();
+			if(myGuess == randomNumber) {
+				success = true;
+				break;
+			}
+			else {
+				if(myGuess > randomNumber) {
+					System.out.println("Too high!Try again.");
+				}
+				else {
+					System.out.println("Too low!Try again.");
+				}
+				System.out.println("Left "+ (10 - i));//剩余次数
+			}
+		}
+		if(success)
+			System.out.println("Excellent!You guess the number.");
+		else
+			System.out.println("Sorry you fail!");
+		System.out.println("Would you want to play again?(y/n)");
+		Scanner scan1 = new Scanner (System.in);
+		again = scan1.next();
+
+	}while(again.equalsIgnoreCase("y"));
+		System.out.println("Game over!Welcome to play again!");
+	}
+}
